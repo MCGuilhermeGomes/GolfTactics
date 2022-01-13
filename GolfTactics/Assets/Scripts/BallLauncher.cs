@@ -10,7 +10,6 @@ public class BallLauncher : MonoBehaviour
 	public float gravity = -18;
 
 	public bool debugPath;
-
 	void Start()
 	{
 		ball.useGravity = false;
@@ -21,6 +20,7 @@ public class BallLauncher : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
 			Launch();
+			gameObject.SendMessage("SwitchTurn");
 		}
 
 		if (debugPath)

@@ -20,7 +20,7 @@ public class BattleSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentAUnit = -1;
+        currentAUnit = 0;
         currentBUnit = -1;
         state = BattleState.START;
         SetupBattle(); 
@@ -39,19 +39,40 @@ public class BattleSystem : MonoBehaviour
             playerBUnit[i] = playerBTeam[i].GetComponent<Unit>();         
         }
         state = BattleState.TEAMATURN;
-        PlayerTurn();
-    }
-
-    void PlayerTurn()
-    {
-        PickTeamBall();
         ballLauncher.ball = playerATeam[currentAUnit].GetComponent<Rigidbody>();
+    }
+    public void SwitchTurn()
+    {
+        if (state == BattleState.TEAMATURN)
+        {
+            state = BattleState.TEAMBTURN;
+            PickTeamBall();
+        } else if (state == BattleState.TEAMBTURN)
+        {
+            state = BattleState.TEAMATURN;
+            PickTeamBall();
+        }
     }
     void PickTeamBall()
     {
         if (state == BattleState.TEAMATURN)
         {
             currentAUnit++;
+            if (currentAUnit >= playerATeam.Length)
+            {
+                currentAUnit = 0;
+            }
+            ballLauncher.ball = playerATeam[currentAUnit].GetComponent<Rigidbody>();
+        } else if (state == BattleState.TEAMBTURN)
+        {
+            currentBUnit++;
+            if (currentBUnit >= playerBTeam.Length)
+            {
+                currentBUnit = 0;
+            }
+            ballLauncher.ball = playerBTeam[currentBUnit].GetComponent<Rigidbody>();
         }
     }
+    
+
 }
