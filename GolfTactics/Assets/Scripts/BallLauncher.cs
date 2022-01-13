@@ -3,7 +3,6 @@ using System.Collections;
 
 public class BallLauncher : MonoBehaviour
 {
-
 	public Rigidbody ball;
 	public Transform target;
 

@@ -1210,6 +1210,7 @@ MonoBehaviour:
   - {fileID: 1537660541}
   - {fileID: 1855779115}
   - {fileID: 1242085524}
+  currentAUnit: 0
   playerAUnit:
   - {fileID: 0}
   - {fileID: 0}
@@ -1218,6 +1219,7 @@ MonoBehaviour:
   - {fileID: 207533045}
   - {fileID: 2054206605}
   - {fileID: 206948373}
+  currentBUnit: 0
   playerBUnit:
   - {fileID: 0}
   - {fileID: 0}
@@ -1226,6 +1228,7 @@ MonoBehaviour:
   playerCamB: {fileID: 1436221965}
   mainCamera: {fileID: 963194225}
   state: 0
+  launcher: {fileID: 665874777}
 --- !u!4 &1666313337
 Transform:
   m_ObjectHideFlags: 0
