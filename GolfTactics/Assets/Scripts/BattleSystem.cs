@@ -46,12 +46,12 @@ public class BattleSystem : MonoBehaviour
         if (state == BattleState.TEAMATURN)
         {
             state = BattleState.TEAMBTURN;
-            PickTeamBall();
         } else if (state == BattleState.TEAMBTURN)
         {
             state = BattleState.TEAMATURN;
-            PickTeamBall();
         }
+        PickTeamBall();
+        SwitchCamera();
     }
     void PickTeamBall()
     {
@@ -74,5 +74,16 @@ public class BattleSystem : MonoBehaviour
         }
     }
     
-
-}
+    void SwitchCamera()
+    {
+     if (state == BattleState.TEAMATURN)
+        { 
+            mainCamera.transform.position = playerCamA.position;
+            mainCamera.transform.rotation = playerCamA.rotation;
+        } else if (state == BattleState.TEAMBTURN)
+        {
+            mainCamera.transform.position = playerCamB.position;
+            mainCamera.transform.rotation = playerCamB.rotation;
+        }   
+    }
+} 
