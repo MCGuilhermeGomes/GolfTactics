@@ -47,6 +47,7 @@ public class PendulumMinigame : MonoBehaviour
     public float StopPendulum()
     {
         swinging = false;
+        UIManager.main.state = UIGameState.Aiming;
         Debug.Log(progress);
         return progress;
     }
