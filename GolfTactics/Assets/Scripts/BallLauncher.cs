@@ -9,7 +9,7 @@ public class BallLauncher : MonoBehaviour
 	public Transform target;
 	public Bomb ballBomb;
 	public BattleSystem battleSystem;
-
+	
 	public float h = 25;
 	public float gravity = -18;
 
@@ -19,6 +19,7 @@ public class BallLauncher : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Space)) //button/touch click
 		{
+			SwitchToPlayerCam();
 			Launch();
 		}
 
@@ -87,4 +88,9 @@ public class BallLauncher : MonoBehaviour
 		}
 
 	}
+
+	void SwitchToPlayerCam()
+    {
+
+    }
 }

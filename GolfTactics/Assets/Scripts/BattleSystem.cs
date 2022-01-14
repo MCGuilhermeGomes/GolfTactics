@@ -14,9 +14,10 @@ public class BattleSystem : MonoBehaviour
     public Unit[] teamBUnit;
     public Transform playerCamA;
     public Transform playerCamB;
-    public GameObject mainCamera;
     public BattleState state; 
     public BallLauncher ballLauncher;
+
+    public Camera mainCamera;
     //public Respawner respawner;
 
     // Start is called before the first frame update
@@ -25,7 +26,7 @@ public class BattleSystem : MonoBehaviour
         currentAUnit = -1;
         currentBUnit = 0;
         state = BattleState.START;
-        SetupBattle(); 
+        SetupBattle();
     }
 
     void SetupBattle()
