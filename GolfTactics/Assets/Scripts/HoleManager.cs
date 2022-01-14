@@ -9,9 +9,11 @@ public class HoleManager : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.gameObject.name);
-
         Unit unit = other.gameObject.GetComponent<Unit>();
-        StartCoroutine(BombFallCoroutine(unit.gameObject));
+        if (unit)
+        {
+            StartCoroutine(BombFallCoroutine(unit.gameObject));
+        }
     }
 
     IEnumerator BombFallCoroutine(GameObject bomb)
@@ -20,13 +22,11 @@ public class HoleManager : MonoBehaviour
 
         yield return new WaitForSeconds(fallTime);
 
-
         bomb.GetComponent<Collider>().enabled = true;
 
         Unit unit = bomb.GetComponent<Unit>();
 
-        unit.EndMove();
-        unit.currentHP = 0;
+        unit.TakeDamage(999);
         unit.TryToKill();
 
         if (bomb.GetComponent<Unit>().team == 1)
@@ -37,5 +37,8 @@ public class HoleManager : MonoBehaviour
         {
             ScoreManager.Instance.IncrementPlayerBScore(5);
         }
+
+        bomb.GetComponent<Bomb>().hasExploded = true;
+       
     }
 }

@@ -30,16 +30,19 @@ public class BallLauncher : MonoBehaviour
 			DrawPath();
 		}
 
-		if(!ballUnit.wasLaunched)
+		if (UIManager.main.state == UIGameState.Aiming)
 			DrawArc();
+		else
+			ClearArc();
 
 
-		if (ballBomb.HasExploded()) // bomb i launched blew up, switch turn
+		if (ballBomb.hasExploded) // bomb i launched blew up, switch turn
 		{
 			target.GetComponent<CapsuleCollider>().enabled = true;
 			target.position = Vector3.zero;
 			actualTarget.position = Vector3.zero;
-			battleSystem.SwitchTurn();
+			battleSystem.SwitchTurn(false);
+			ballBomb.hasExploded = false;
 		}
 	}
 
@@ -128,5 +131,11 @@ public class BallLauncher : MonoBehaviour
 		Color baseColor = ballUnit.team == 1 ? new Color(0f,0f,1f,0.5f) : new Color(1f, 0f, 0f, 0.5f);
 		l.material.color = baseColor;
 		l.SetPositions(points);
+	}
+
+	void ClearArc()
+    {
+		LineRenderer l = ArcPreview.instance.gameObject.GetComponent<LineRenderer>();
+		l.positionCount = 0;
 	}
 }

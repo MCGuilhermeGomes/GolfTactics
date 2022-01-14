@@ -8,6 +8,7 @@ TagManager:
   - Bomb
   - PlayerCamera
   - Second Camera
+  - Ground
   layers:
   - Default
   - TransparentFX

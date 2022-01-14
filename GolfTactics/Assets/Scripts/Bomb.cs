@@ -12,7 +12,7 @@ public class Bomb : MonoBehaviour
     public GameObject explosionEffect;
 
     float countdown;
-    bool hasExploded = false;
+    public bool hasExploded = false;
 
     // Start is called before the first frame update
     void Start ()
@@ -56,11 +56,6 @@ public class Bomb : MonoBehaviour
             }
         }
         hasExploded = true;
-    }
-
-    public bool HasExploded ()
-    {
-        return hasExploded;
     }
 
     public void ExplosionEffect()
