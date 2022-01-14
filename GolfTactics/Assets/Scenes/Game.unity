@@ -205,6 +205,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: B2
       objectReference: {fileID: 0}
+    - target: {fileID: 3252098984494409870, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bomb
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3297329378e142a7b37ba5863bcb7bf, type: 3}
 --- !u!1 &207533045 stripped
@@ -422,6 +427,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: B1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252098984494409870, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bomb
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3297329378e142a7b37ba5863bcb7bf, type: 3}
@@ -755,6 +765,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: A2
       objectReference: {fileID: 0}
+    - target: {fileID: 3252098984494409870, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bomb
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3297329378e142a7b37ba5863bcb7bf, type: 3}
 --- !u!1 &1213664142
@@ -950,6 +965,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: A0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252098984494409870, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bomb
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3297329378e142a7b37ba5863bcb7bf, type: 3}
@@ -1231,7 +1251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f056e9439b44e47a6a16259e4a748c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerATeam:
+  teamA:
   - {fileID: 2017018607}
   - {fileID: 381639099}
   - {fileID: 665318722}
@@ -1246,7 +1266,7 @@ MonoBehaviour:
   - {fileID: 1360933652}
   - {fileID: 948788099}
   currentBUnit: 0
-  playerBUnit:
+  teamBUnit:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -1285,6 +1305,7 @@ MonoBehaviour:
   ballBody: {fileID: 0}
   target: {fileID: 561649510}
   bomb: {fileID: 0}
+  battleSystem: {fileID: 1666313336}
   h: 25
   gravity: -18
   debugPath: 1
@@ -1627,6 +1648,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: A1
       objectReference: {fileID: 0}
+    - target: {fileID: 3252098984494409870, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bomb
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3297329378e142a7b37ba5863bcb7bf, type: 3}
 --- !u!1001 &3252098984431065979
@@ -1710,6 +1736,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: B0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252098984494409870, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bomb
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3297329378e142a7b37ba5863bcb7bf, type: 3}

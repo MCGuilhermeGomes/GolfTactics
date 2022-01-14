@@ -12,15 +12,19 @@ public class Unit : MonoBehaviour
     public int maxHP;
     public int currentHP;
     public Bomb bomb;
+
     public void TakeDamage(int dmg)
     {
         currentHP -= dmg;
     }
+
     void Start()
     {
+        rb = gameObject.GetComponent<Rigidbody>();
         isMoving = false;
         wasLaunched = false;
     }
+
     void Update()
     {
         if (wasLaunched)
@@ -28,7 +32,7 @@ public class Unit : MonoBehaviour
             speed = GetComponent<Rigidbody>().velocity.magnitude;
             if(speed < 0.5) 
             {
-                gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+                rb.velocity = new Vector3(0, 0, 0);
                 isMoving = false;
                 wasLaunched = false;
                 bomb.Explode();

@@ -6,48 +6,89 @@ public enum BattleState { START , TEAMATURN, TEAMBTURN, WON, LOST}
 
 public class BattleSystem : MonoBehaviour
 {
-    public GameObject[] playerATeam;
+    public GameObject[] teamA;
     public int currentAUnit;
-    public Unit[] playerAUnit;
-    public Bomb currentBomb;
-    public GameObject[] playerBTeam;
+    public Unit[] teamAUnit;
+    public GameObject[] teamB;
     public int currentBUnit;
-    public Unit[] playerBUnit;
+    public Unit[] teamBUnit;
     public Transform playerCamA;
     public Transform playerCamB;
     public GameObject mainCamera;
     public BattleState state; 
     public BallLauncher ballLauncher;
+    //public Respawner respawner;
+
     // Start is called before the first frame update
     void Start()
     {
-        currentAUnit = 0;
-        currentBUnit = -1;
+        currentAUnit = -1;
+        currentBUnit = 0;
         state = BattleState.START;
         SetupBattle(); 
     }
 
     void SetupBattle()
     {
-        mainCamera.transform.position = playerCamA.position;
-        mainCamera.transform.rotation = playerCamA.rotation;
-        for (int i = 0; i < playerATeam.Length; i++)
+        for (int i = 0; i < teamA.Length; i++)
         {
-            playerAUnit[i] = playerATeam[i].GetComponent<Unit>();         
+            teamAUnit[i] = teamA[i].GetComponent<Unit>();
         }
-        for (int i = 0; i < playerBTeam.Length; i++)
+        for (int i = 0; i < teamB.Length; i++)
         {
-            playerBUnit[i] = playerBTeam[i].GetComponent<Unit>();         
+            teamBUnit[i] = teamB[i].GetComponent<Unit>();
         }
-        state = BattleState.TEAMATURN;
-        ballLauncher.ballBody = playerATeam[currentAUnit].GetComponent<Rigidbody>();
-        ballLauncher.ballUnit = playerAUnit[currentAUnit];
-        currentBomb = playerATeam[currentAUnit].GetComponent<Bomb>();
-        ballLauncher.bomb = currentBomb;
 
+        state = BattleState.TEAMATURN;
+
+        PickTeamBall();
+        ballLauncher.updateBall();
+        SwitchCamera();
     }
+
+    bool PickTeamBall()
+    {
+        if (state == BattleState.TEAMATURN)
+        {
+            currentAUnit++;
+            if (currentAUnit >= teamA.Length)
+            {
+                currentAUnit = 0;
+            }
+            ballLauncher.ball = teamA[currentAUnit];
+            return true;
+        }
+        else if (state == BattleState.TEAMBTURN)
+        {
+            currentBUnit++;
+            if (currentBUnit >= teamB.Length)
+            {
+                currentBUnit = 0;
+            }
+            ballLauncher.ball = teamB[currentBUnit];
+            return true;
+        }
+        return false;
+    }
+
+    void SwitchCamera()
+    {
+        if (state == BattleState.TEAMATURN)
+        {
+            mainCamera.transform.position = playerCamA.position;
+            mainCamera.transform.rotation = playerCamA.rotation;
+        }
+        else if (state == BattleState.TEAMBTURN)
+        {
+            mainCamera.transform.position = playerCamB.position;
+            mainCamera.transform.rotation = playerCamB.rotation;
+        }
+    }
+
     public void SwitchTurn()
     {
+        //respawner.CheckForDeaths();
+           
         if (state == BattleState.TEAMATURN)
         {
             state = BattleState.TEAMBTURN;
@@ -55,47 +96,12 @@ public class BattleSystem : MonoBehaviour
         {
             state = BattleState.TEAMATURN;
         }
-        PickTeamBall();
-        SwitchCamera();
-    } 
-    void PickTeamBall()
-    {
-        if (state == BattleState.TEAMATURN)
-        {
-            currentAUnit++;
-            if (currentAUnit >= playerATeam.Length)
-            {
-                currentAUnit = 0;
-            }
-            ballLauncher.ballBody = playerATeam[currentAUnit].GetComponent<Rigidbody>();
-            ballLauncher.ballUnit = playerAUnit[currentAUnit];
-            currentBomb = playerATeam[currentAUnit].GetComponent<Bomb>();
-            ballLauncher.bomb = currentBomb;
 
-        } else if (state == BattleState.TEAMBTURN)
+        if (PickTeamBall())
         {
-            currentBUnit++;
-            if (currentBUnit >= playerBTeam.Length)
-            {
-                currentBUnit = 0;
-            }
-            ballLauncher.ballBody = playerBTeam[currentBUnit].GetComponent<Rigidbody>();
-            ballLauncher.ballUnit = playerBUnit[currentBUnit];
-            currentBomb = playerBTeam[currentBUnit].GetComponent<Bomb>();
-            ballLauncher.bomb = currentBomb;
+            ballLauncher.updateBall();
         }
-    }
-    
-    void SwitchCamera()
-    {
-     if (state == BattleState.TEAMATURN)
-        { 
-            mainCamera.transform.position = playerCamA.position;
-            mainCamera.transform.rotation = playerCamA.rotation;
-        } else if (state == BattleState.TEAMBTURN)
-        {
-            mainCamera.transform.position = playerCamB.position;
-            mainCamera.transform.rotation = playerCamB.rotation;
-        }   
+
+        SwitchCamera();
     }
 } 

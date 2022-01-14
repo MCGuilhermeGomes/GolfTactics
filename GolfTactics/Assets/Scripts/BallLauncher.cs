@@ -3,23 +3,21 @@ using System.Collections;
 
 public class BallLauncher : MonoBehaviour
 {
+	public GameObject ball;
 	public Unit ballUnit;
 	public Rigidbody ballBody;
 	public Transform target;
-	public Bomb bomb;
+	public Bomb ballBomb;
+	public BattleSystem battleSystem;
 
 	public float h = 25;
 	public float gravity = -18;
 
 	public bool debugPath;
-	void Start()
-	{
-		ballBody.useGravity = false;
-	}
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.Space)) //button/touch click
 		{
 			Launch();
 		}
@@ -28,10 +26,18 @@ public class BallLauncher : MonoBehaviour
 		{
 			DrawPath();
 		}
-		if (bomb.HasExploded())
+
+		if (ballBomb.HasExploded()) // bomb i launched blew up, switch turn
 		{
-			gameObject.SendMessage("SwitchTurn");
+			battleSystem.SwitchTurn();
 		}
+	}
+
+	public void updateBall()
+    {
+		ballUnit = ball.GetComponent<Unit>();
+		ballBody = ball.GetComponent<Rigidbody>();
+		ballBomb = ball.GetComponent<Bomb>();
 	}
 
 	void Launch()
