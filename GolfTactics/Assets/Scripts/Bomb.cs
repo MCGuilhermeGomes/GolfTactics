@@ -40,7 +40,18 @@ public class Bomb : MonoBehaviour
                 if (unit.team != this.GetComponent<Unit>().team)
                 {
                     unit.TakeDamage(damage);
-                    unit.TryToKill();
+                    bool k = unit.TryToKill();
+                    if(k)
+                    {
+                        if(this.GetComponent<Unit>().team == 1)
+                        {
+                            ScoreManager.Instance.IncrementPlayerAScore(1);
+                        }
+                        else
+                        {
+                            ScoreManager.Instance.IncrementPlayerBScore(1);
+                        }
+                    }
                 }
             }
         }

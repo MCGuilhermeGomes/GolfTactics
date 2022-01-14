@@ -43,12 +43,15 @@ public class Unit : MonoBehaviour
         currentHP -= dmg;
     }
 
-    public void TryToKill()
+    public bool TryToKill()
     {
         if (currentHP <= 0)
         {
             Die();
+            return true;
         }
+
+        return false;
     }
 
     void Die()
