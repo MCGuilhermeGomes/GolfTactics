@@ -8,15 +8,10 @@ public class Unit : MonoBehaviour
     public Rigidbody rb;
     public bool isMoving;
     public bool wasLaunched;
-    public int damage;
     public int maxHP;
     public int currentHP;
     public Bomb bomb;
-
-    public void TakeDamage(int dmg)
-    {
-        currentHP -= dmg;
-    }
+    public int team;
 
     void Start()
     {
@@ -43,11 +38,32 @@ public class Unit : MonoBehaviour
         }
     }
 
+    public void TakeDamage(int dmg)
+    {
+        currentHP -= dmg;
+    }
+
     public void TryToKill()
     {
         if (currentHP <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    void Die()
+    {
+        gameObject.SetActive(false);
+        transform.localPosition = Vector3.zero;
+        transform.localRotation.eulerAngles.Set(0, 0, 0);
+        Debug.Log("I DIED");
+    }
+
+    public void Respawn()
+    {
+        gameObject.SetActive(true);
+        isMoving = false;
+        wasLaunched = false;
+        currentHP = maxHP;
     }
 }

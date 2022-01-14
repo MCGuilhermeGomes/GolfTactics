@@ -94,7 +94,6 @@ public class PendulumMinigame : MonoBehaviour
 
     public void ResetPendulum()
     {
-        Debug.Log("RESET PENDULUM");
         progress = 0;
         pendulum.transform.rotation = Quaternion.Euler(Vector3.zero);
     }

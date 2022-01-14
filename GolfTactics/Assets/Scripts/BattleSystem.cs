@@ -24,7 +24,7 @@ public class BattleSystem : MonoBehaviour
     void Start()
     {
         currentAUnit = -1;
-        currentBUnit = 0;
+        currentBUnit = -1;
         state = BattleState.START;
         SetupBattle();
     }
@@ -56,9 +56,17 @@ public class BattleSystem : MonoBehaviour
             {
                 currentAUnit = 0;
             }
+
+            if (!teamA[currentAUnit].activeInHierarchy)
+            {
+                Debug.Log("I HAVE REVIVED");
+                teamAUnit[currentAUnit].Respawn();
+            }
+
             ballLauncher.ball = teamA[currentAUnit];
             return true;
         }
+
         else if (state == BattleState.TEAMBTURN)
         {
             currentBUnit++;
@@ -66,7 +74,14 @@ public class BattleSystem : MonoBehaviour
             {
                 currentBUnit = 0;
             }
+
+            if (!teamB[currentBUnit].activeInHierarchy)
+            {
+                Debug.Log("I HAVE REVIVED");
+                teamBUnit[currentBUnit].Respawn();
+            }
             ballLauncher.ball = teamB[currentBUnit];
+
             return true;
         }
         return false;

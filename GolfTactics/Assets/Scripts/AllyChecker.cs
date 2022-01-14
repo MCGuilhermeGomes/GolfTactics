@@ -6,7 +6,6 @@ public class AllyChecker : MonoBehaviour
 {
     public float radius;
 
-
     private static AllyChecker instance;
     public static AllyChecker Instance
     {
@@ -24,8 +23,7 @@ public class AllyChecker : MonoBehaviour
         }
     }
 
-
-        public int AlliesInRadius(int team)
+    public int AlliesInRadius(int team)
     {
         int result = 0;
 

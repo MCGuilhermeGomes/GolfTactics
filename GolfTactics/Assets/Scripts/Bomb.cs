@@ -6,10 +6,9 @@ public class Bomb : MonoBehaviour
 {
     public float delay = 3f;
     public float radius = 5f;
-
     public float force = 100f;
+    public int damage = 20;
 
-    public int damage = 5;
     public GameObject explosionEffect;
 
     float countdown;
@@ -38,8 +37,11 @@ public class Bomb : MonoBehaviour
             Unit unit = nearbyObject.GetComponent<Unit>();
             if (unit != null)
             {
-                unit.TakeDamage(5);
-                unit.TryToKill();
+                if (unit.team != this.GetComponent<Unit>().team)
+                {
+                    unit.TakeDamage(damage);
+                    unit.TryToKill();
+                }
             }
         }
         hasExploded = true;
