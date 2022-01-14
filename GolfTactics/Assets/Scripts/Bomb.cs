@@ -21,17 +21,7 @@ public class Bomb : MonoBehaviour
         countdown = delay;
     }
 
-    // Update is called once per frame
-    void Update ()
-    {
-        countdown -= Time.deltaTime;
-        if (countdown <= 0f && !hasExploded)
-        {
-            Explode();
-        }
-    }
-
-    void Explode ()
+    public void Explode ()
     {
         Instantiate(explosionEffect, transform.position, transform.rotation);
 
@@ -52,6 +42,11 @@ public class Bomb : MonoBehaviour
             }
         }
         hasExploded = true;
+    }
+
+    public bool HasExploded ()
+    {
+        return hasExploded;
     }
 }
 

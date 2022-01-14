@@ -127,9 +127,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfa3e92734ab4fe7b520ff70a5c7717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
+  rb: {fileID: 0}
+  isMoving: 0
+  wasLaunched: 0
   damage: 0
   maxHP: 0
   currentHP: 0
+  bomb: {fileID: -5152133641852779996}
 --- !u!114 &-5152133641852779996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,9 +147,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ed76d1ef51b7484781092e6db407fc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 1
-  radius: 100
-  force: 700
+  delay: 999
+  radius: 10
+  force: 100
+  damage: 5
   explosionEffect: {fileID: 1892078723244562, guid: 46876a2780737ec45a19d62f88e5ce56,
     type: 3}
 --- !u!1001 &3133140395506977184

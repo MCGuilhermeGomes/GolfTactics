@@ -3,8 +3,10 @@ using System.Collections;
 
 public class BallLauncher : MonoBehaviour
 {
-	public Rigidbody ball;
+	public Unit ballUnit;
+	public Rigidbody ballBody;
 	public Transform target;
+	public Bomb bomb;
 
 	public float h = 25;
 	public float gravity = -18;
@@ -12,7 +14,7 @@ public class BallLauncher : MonoBehaviour
 	public bool debugPath;
 	void Start()
 	{
-		ball.useGravity = false;
+		ballBody.useGravity = false;
 	}
 
 	void Update()
@@ -20,26 +22,30 @@ public class BallLauncher : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
 			Launch();
-			gameObject.SendMessage("SwitchTurn");
 		}
 
 		if (debugPath)
 		{
 			DrawPath();
 		}
+		if (bomb.HasExploded())
+		{
+			gameObject.SendMessage("SwitchTurn");
+		}
 	}
 
 	void Launch()
 	{
+		ballUnit.wasLaunched = true;
 		Physics.gravity = Vector3.up * gravity;
-		ball.useGravity = true;
-		ball.velocity = CalculateLaunchData().initialVelocity;
+		ballBody.useGravity = true;
+		ballBody.velocity = CalculateLaunchData().initialVelocity;
 	}
 
 	LaunchData CalculateLaunchData()
 	{
-		float displacementY = target.position.y - ball.position.y;
-		Vector3 displacementXZ = new Vector3(target.position.x - ball.position.x, 0, target.position.z - ball.position.z);
+		float displacementY = target.position.y - ballBody.position.y;
+		Vector3 displacementXZ = new Vector3(target.position.x - ballBody.position.x, 0, target.position.z - ballBody.position.z);
 		float time = Mathf.Sqrt(-2 * h / gravity) + Mathf.Sqrt(2 * (displacementY - h) / gravity);
 		Vector3 velocityY = Vector3.up * Mathf.Sqrt(-2 * gravity * h);
 		Vector3 velocityXZ = displacementXZ / time;
@@ -50,14 +56,14 @@ public class BallLauncher : MonoBehaviour
 	void DrawPath()
 	{
 		LaunchData launchData = CalculateLaunchData();
-		Vector3 previousDrawPoint = ball.position;
+		Vector3 previousDrawPoint = ballBody.position;
 
 		int resolution = 30;
 		for (int i = 1; i <= resolution; i++)
 		{
 			float simulationTime = i / (float)resolution * launchData.timeToTarget;
 			Vector3 displacement = launchData.initialVelocity * simulationTime + Vector3.up * gravity * simulationTime * simulationTime / 2f;
-			Vector3 drawPoint = ball.position + displacement;
+			Vector3 drawPoint = ballBody.position + displacement;
 			Debug.DrawLine(previousDrawPoint, drawPoint, Color.red);
 			previousDrawPoint = drawPoint;
 		}

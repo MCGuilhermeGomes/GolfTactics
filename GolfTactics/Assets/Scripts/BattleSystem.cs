@@ -9,6 +9,7 @@ public class BattleSystem : MonoBehaviour
     public GameObject[] playerATeam;
     public int currentAUnit;
     public Unit[] playerAUnit;
+    public Bomb currentBomb;
     public GameObject[] playerBTeam;
     public int currentBUnit;
     public Unit[] playerBUnit;
@@ -39,7 +40,11 @@ public class BattleSystem : MonoBehaviour
             playerBUnit[i] = playerBTeam[i].GetComponent<Unit>();         
         }
         state = BattleState.TEAMATURN;
-        ballLauncher.ball = playerATeam[currentAUnit].GetComponent<Rigidbody>();
+        ballLauncher.ballBody = playerATeam[currentAUnit].GetComponent<Rigidbody>();
+        ballLauncher.ballUnit = playerAUnit[currentAUnit];
+        currentBomb = playerATeam[currentAUnit].GetComponent<Bomb>();
+        ballLauncher.bomb = currentBomb;
+
     }
     public void SwitchTurn()
     {
@@ -62,7 +67,11 @@ public class BattleSystem : MonoBehaviour
             {
                 currentAUnit = 0;
             }
-            ballLauncher.ball = playerATeam[currentAUnit].GetComponent<Rigidbody>();
+            ballLauncher.ballBody = playerATeam[currentAUnit].GetComponent<Rigidbody>();
+            ballLauncher.ballUnit = playerAUnit[currentAUnit];
+            currentBomb = playerATeam[currentAUnit].GetComponent<Bomb>();
+            ballLauncher.bomb = currentBomb;
+
         } else if (state == BattleState.TEAMBTURN)
         {
             currentBUnit++;
@@ -70,7 +79,10 @@ public class BattleSystem : MonoBehaviour
             {
                 currentBUnit = 0;
             }
-            ballLauncher.ball = playerBTeam[currentBUnit].GetComponent<Rigidbody>();
+            ballLauncher.ballBody = playerBTeam[currentBUnit].GetComponent<Rigidbody>();
+            ballLauncher.ballUnit = playerBUnit[currentBUnit];
+            currentBomb = playerBTeam[currentBUnit].GetComponent<Bomb>();
+            ballLauncher.bomb = currentBomb;
         }
     }
     
