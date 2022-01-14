@@ -14,7 +14,6 @@ public class Unit : MonoBehaviour
     public int team;
 
     private bool landed = false;
-    private bool exploded = false;
 
     void Start()
     {
@@ -32,10 +31,9 @@ public class Unit : MonoBehaviour
             if (GetComponent<Rigidbody>().velocity.y == 0 && !landed)
                 landed = true;
 
-            if (landed && !exploded)
+            if (landed && !bomb.hasExploded)
             {
                 bomb.Explode();
-                exploded = true;
             }
 
             if (speed < 0.5) 
@@ -48,6 +46,14 @@ public class Unit : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            Debug.Log("Landed");
+        }
+    }
+
     public void TakeDamage(int dmg)
     {
         currentHP -= dmg;
@@ -55,11 +61,11 @@ public class Unit : MonoBehaviour
 
     public void EndMove()
     {
+        bomb.hasExploded = false;
         rb.velocity = new Vector3(0, 0, 0);
         isMoving = false;
         wasLaunched = false;
         landed = false;
-        exploded = false;
     }
 
     public bool TryToKill()
@@ -77,16 +83,19 @@ public class Unit : MonoBehaviour
     {
         gameObject.SetActive(false);
         transform.localPosition = Vector3.zero;
-        transform.localRotation.eulerAngles.Set(0, 0, 0);
+        transform.localRotation = Quaternion.identity;
         Debug.Log("I DIED");
     }
 
     public void Respawn()
     {
-        gameObject.SetActive(true);
-        gameObject.GetComponent<Collider>().enabled = true;
-        isMoving = false;
-        wasLaunched = false;
-        currentHP = maxHP;
+        if (currentHP <= 0)
+        {
+            gameObject.SetActive(true);
+            gameObject.GetComponent<Collider>().enabled = true;
+            isMoving = false;
+            wasLaunched = false;
+            currentHP = maxHP;   
+        }
     }
 }

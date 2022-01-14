@@ -99,21 +99,29 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-    public void SwitchTurn()
+    public void SwitchTurn(bool switchTeam)
     {
+        switchTeam = true;
         foreach (Camera camera in Camera.allCameras)
         {
             camera.enabled = false;
         }
 
         mainCamera.enabled = true;
-
-        if (state == BattleState.TEAMATURN)
+        
+        if (switchTeam)
         {
-            state = BattleState.TEAMBTURN;
-        } else if (state == BattleState.TEAMBTURN)
-        {
-            state = BattleState.TEAMATURN;
+            if (state == BattleState.TEAMATURN)
+            {
+                state = BattleState.TEAMBTURN;
+            } else if (state == BattleState.TEAMBTURN)
+            {
+                state = BattleState.TEAMATURN;
+            }  
+            
+            HeaderUITurnSwitch.main.SwitchPlayer();
+            LauncherButtonColorSwap.main.SwitchPlayer();
+            SwitchCamera();
         }
 
         if (PickTeamBall())
@@ -121,11 +129,8 @@ public class BattleSystem : MonoBehaviour
             ballLauncher.updateBall();
         }
 
-        HeaderUITurnSwitch.main.SwitchPlayer();
-        LauncherButtonColorSwap.main.SwitchPlayer();
         UIManager.main.state = UIGameState.Aiming;
         ballLauncher.target.GetComponent<DragWithTouch>().enabled = true;
 
-        SwitchCamera();
     }
 } 
