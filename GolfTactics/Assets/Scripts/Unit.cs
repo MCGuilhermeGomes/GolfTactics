@@ -13,6 +13,9 @@ public class Unit : MonoBehaviour
     public Bomb bomb;
     public int team;
 
+    private bool landed = false;
+    private bool exploded = false;
+
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
@@ -25,7 +28,17 @@ public class Unit : MonoBehaviour
         if (wasLaunched)
         {
             speed = GetComponent<Rigidbody>().velocity.magnitude;
-            if(speed < 0.5) 
+
+            if (GetComponent<Rigidbody>().velocity.y == 0 && !landed)
+                landed = true;
+
+            if (landed && !exploded)
+            {
+                bomb.Explode();
+                exploded = true;
+            }
+
+            if (speed < 0.5) 
             {
                 EndMove();
             } else
@@ -45,7 +58,8 @@ public class Unit : MonoBehaviour
         rb.velocity = new Vector3(0, 0, 0);
         isMoving = false;
         wasLaunched = false;
-        bomb.Explode();
+        landed = false;
+        exploded = false;
     }
 
     public bool TryToKill()
