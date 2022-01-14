@@ -88,8 +88,13 @@ public class BattleSystem : MonoBehaviour
 
     public void SwitchTurn()
     {
-        //respawner.CheckForDeaths();
-           
+        foreach (Camera camera in Camera.allCameras)
+        {
+            camera.enabled = false;
+        }
+
+        mainCamera.enabled = true;
+
         if (state == BattleState.TEAMATURN)
         {
             state = BattleState.TEAMBTURN;

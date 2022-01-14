@@ -6,6 +6,7 @@ public class PlayerCamera : MonoBehaviour
 {
     public Transform target;
     public Camera playerCamera;
+    public Camera mainCamera;
 
     private void Start()
     {
@@ -14,13 +15,13 @@ public class PlayerCamera : MonoBehaviour
 
     public void enableCamera()
     {
-        Camera.main.enabled = false;
+        mainCamera.enabled = false;
         playerCamera.enabled = true;
     }
 
     public void disableCamera()
     {
-        Camera.main.enabled = true;
+        mainCamera.enabled = true;
         playerCamera.enabled = false;
     }
 }
