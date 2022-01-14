@@ -96,8 +96,9 @@ public class BallLauncher : MonoBehaviour
 
 	}
 
-	void SwitchToPlayerCam()
+	public void SwitchToPlayerCam()
     {
+		target.GetComponent<CapsuleCollider>().enabled = false;
 		ball.transform.LookAt(target);
 		ball.GetComponent<PlayerCamera>().enableCamera();
     }
