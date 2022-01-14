@@ -12,7 +12,6 @@ public class UIManager : MonoBehaviour
 
     public GameObject launchButton;
     public GameObject pendulumMinigame;
-    public GameObject pullMinigame;
     public GameObject allyBonusText;
     public GameObject enemyPenaltyText;
 
@@ -33,14 +32,12 @@ public class UIManager : MonoBehaviour
             case UIGameState.Aiming:
                 launchButton.SetActive(true);
                 pendulumMinigame.SetActive(false);
-                pullMinigame.SetActive(false);
                 allyBonusText.SetActive(false);
                 enemyPenaltyText.SetActive(false);
                 break;
             case UIGameState.Minigame:
                 launchButton.SetActive(false);
                 pendulumMinigame.SetActive(true);
-                pullMinigame.SetActive(true);
                 break;
             case UIGameState.MinigameEnd:
                 timer += Time.deltaTime;
@@ -51,12 +48,10 @@ public class UIManager : MonoBehaviour
                 }
                 launchButton.SetActive(false);
                 pendulumMinigame.SetActive(true);
-                pullMinigame.SetActive(false);
                 break;
             case UIGameState.Launching:
                 launchButton.SetActive(false);
                 pendulumMinigame.SetActive(false);
-                pullMinigame.SetActive(false);
                 break;
         }
 

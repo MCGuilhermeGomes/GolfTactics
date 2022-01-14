@@ -2805,6 +2805,11 @@ PrefabInstance:
       propertyPath: enemyPenaltyText
       value: 
       objectReference: {fileID: 214140390}
+    - target: {fileID: 554978150066884682, guid: b556c006c6bea44549d50d46c1ce6820,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 554978150402428354, guid: b556c006c6bea44549d50d46c1ce6820,
         type: 3}
       propertyPath: m_Pivot.x

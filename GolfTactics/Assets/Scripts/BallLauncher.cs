@@ -97,7 +97,7 @@ public class BallLauncher : MonoBehaviour
 
 	public void SwitchToPlayerCam()
     {
-		target.GetComponent<CapsuleCollider>().enabled = false;
+		target.GetComponent<DragWithTouch>().enabled = false;
 		actualTarget.transform.position = target.transform.position;
 		actualTarget.transform.rotation = target.transform.rotation;
 

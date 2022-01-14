@@ -59,7 +59,6 @@ public class BattleSystem : MonoBehaviour
 
             if (!teamA[currentAUnit].activeInHierarchy)
             {
-                Debug.Log("I HAVE REVIVED");
                 teamAUnit[currentAUnit].Respawn();
             }
 
@@ -77,7 +76,6 @@ public class BattleSystem : MonoBehaviour
 
             if (!teamB[currentBUnit].activeInHierarchy)
             {
-                Debug.Log("I HAVE REVIVED");
                 teamBUnit[currentBUnit].Respawn();
             }
             ballLauncher.ball = teamB[currentBUnit];
@@ -126,6 +124,7 @@ public class BattleSystem : MonoBehaviour
         HeaderUITurnSwitch.main.SwitchPlayer();
         LauncherButtonColorSwap.main.SwitchPlayer();
         UIManager.main.state = UIGameState.Aiming;
+        ballLauncher.target.GetComponent<DragWithTouch>().enabled = true;
 
         SwitchCamera();
     }
