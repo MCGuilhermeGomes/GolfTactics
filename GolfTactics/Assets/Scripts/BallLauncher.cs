@@ -27,7 +27,7 @@ public class BallLauncher : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Space)) //button/touch click
 		{
 			SwitchToPlayerCam();
-			Launch();
+			//Launch();
 		}
 
 		if (debugPath)
@@ -98,6 +98,7 @@ public class BallLauncher : MonoBehaviour
 
 	void SwitchToPlayerCam()
     {
-
+		ball.transform.LookAt(target);
+		ball.GetComponent<PlayerCamera>().enableCamera();
     }
 }
