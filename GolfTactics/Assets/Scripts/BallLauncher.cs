@@ -7,12 +7,13 @@ public class BallLauncher : MonoBehaviour
 	public Unit ballUnit;
 	public Rigidbody ballBody;
 	public Transform target;
+	public Transform actualTarget;
 	public Bomb ballBomb;
 	public BattleSystem battleSystem;
+	public PendulumMinigame pendulum;
 	
 	public float h = 25;
 	public float gravity = -18;
-	public float precision = 100;
 
 	public bool debugPath;
 	public static BallLauncher main;
@@ -24,11 +25,6 @@ public class BallLauncher : MonoBehaviour
 
     void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Space)) //button/touch click
-		{
-			SwitchToPlayerCam();
-		}
-
 		if (debugPath)
 		{
 			DrawPath();
@@ -36,7 +32,9 @@ public class BallLauncher : MonoBehaviour
 
 		if (ballBomb.HasExploded()) // bomb i launched blew up, switch turn
 		{
+			target.GetComponent<CapsuleCollider>().enabled = true;
 			target.position = Vector3.zero;
+			actualTarget.position = Vector3.zero;
 			battleSystem.SwitchTurn();
 		}
 	}
@@ -46,11 +44,12 @@ public class BallLauncher : MonoBehaviour
 		ballUnit = ball.GetComponent<Unit>();
 		ballBody = ball.GetComponent<Rigidbody>();
 		ballBomb = ball.GetComponent<Bomb>();
+		pendulum.setLaunchPoint(ball.transform);
 	}
 
-	public void Launch(float pendulumProgress)
+	public void Launch()
 	{
-		precision = pendulumProgress;
+		ball.transform.LookAt(actualTarget);
 		ballUnit.wasLaunched = true;
 		Physics.gravity = Vector3.up * gravity;
 		ballBody.useGravity = true;
@@ -59,8 +58,8 @@ public class BallLauncher : MonoBehaviour
 
 	LaunchData CalculateLaunchData()
 	{
-		float displacementY = target.position.y - ballBody.position.y;
-		Vector3 displacementXZ = new Vector3(target.position.x - ballBody.position.x, 0, target.position.z - ballBody.position.z);
+		float displacementY = actualTarget.position.y - ballBody.position.y;
+		Vector3 displacementXZ = new Vector3(actualTarget.position.x - ballBody.position.x, 0, actualTarget.position.z - ballBody.position.z);
 		float time = Mathf.Sqrt(-2 * h / gravity) + Mathf.Sqrt(2 * (displacementY - h) / gravity);
 		Vector3 velocityY = Vector3.up * Mathf.Sqrt(-2 * gravity * h);
 		Vector3 velocityXZ = displacementXZ / time;
@@ -99,6 +98,9 @@ public class BallLauncher : MonoBehaviour
 	public void SwitchToPlayerCam()
     {
 		target.GetComponent<CapsuleCollider>().enabled = false;
+		actualTarget.transform.position = target.transform.position;
+		actualTarget.transform.rotation = target.transform.rotation;
+
 		ball.transform.LookAt(target);
 		ball.GetComponent<PlayerCamera>().enableCamera();
     }

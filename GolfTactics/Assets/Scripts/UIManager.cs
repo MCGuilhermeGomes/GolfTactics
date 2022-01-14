@@ -13,8 +13,10 @@ public class UIManager : MonoBehaviour
     public GameObject launchButton;
     public GameObject pendulumMinigame;
     public GameObject pullMinigame;
+    public GameObject allyBonusText;
+    public GameObject enemyPenaltyText;
 
-    public float minigameEndTime = 1f;
+    public float minigameEndTime = 0.5f;
     private float timer = 0f;
 
     // Start is called before the first frame update
@@ -31,9 +33,9 @@ public class UIManager : MonoBehaviour
             case UIGameState.Aiming:
                 launchButton.SetActive(true);
                 pendulumMinigame.SetActive(false);
-                PendulumMinigame.main.ResetPendulum();
-                PendulumMinigame.main.StartPendulum();
                 pullMinigame.SetActive(false);
+                allyBonusText.SetActive(false);
+                enemyPenaltyText.SetActive(false);
                 break;
             case UIGameState.Minigame:
                 launchButton.SetActive(false);

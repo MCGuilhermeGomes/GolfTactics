@@ -876,6 +876,7 @@ MonoBehaviour:
   launchButton: {fileID: 6224601654121978356}
   pendulumMinigame: {fileID: 8709977488513987975}
   pullMinigame: {fileID: 2462228734660283332}
+  allyBonusText: {fileID: 741839166721128815}
   minigameEndTime: 1
 --- !u!1 &554978150423823010
 GameObject:
@@ -1985,4 +1986,6 @@ MonoBehaviour:
   pendulum: {fileID: 548454637934692858}
   maxAngle: 55
   baseSwingSpeed: 1
+  allyBonus: 0.6
   maxInfluence: 0
+  allyBonusText: {fileID: 6375099434489917669}
