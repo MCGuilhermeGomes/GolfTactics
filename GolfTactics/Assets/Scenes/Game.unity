@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.11697923, g: 0.42182314, b: 0.7281866, a: 1}
+  m_IndirectSpecularColor: {r: 0.1126132, g: 0.41748017, b: 0.7232102, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -342,7 +342,7 @@ PrefabInstance:
     - target: {fileID: 44682072337203396, guid: e07d1c61ad34c4d7d9c73cd9709c4c2b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.099
       objectReference: {fileID: 0}
     - target: {fileID: 44682072337203396, guid: e07d1c61ad34c4d7d9c73cd9709c4c2b,
         type: 3}
@@ -2520,6 +2520,7 @@ GameObject:
   - component: {fileID: 1902239218}
   - component: {fileID: 1902239217}
   - component: {fileID: 1902239216}
+  - component: {fileID: 1902239220}
   m_Layer: 0
   m_Name: Bonus Hole
   m_TagString: Untagged
@@ -2535,10 +2536,10 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1902239215}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5000001
-  m_Height: 2
+  m_Height: 3
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &1902239217
@@ -2598,12 +2599,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1902239215}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.1988, z: 0}
   m_LocalScale: {x: 5, y: 0.1, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1902239220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902239215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9b9529b44095467286a0a86ff31a014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallTime: 1.5
 --- !u!1 &1955172725
 GameObject:
   m_ObjectHideFlags: 0
