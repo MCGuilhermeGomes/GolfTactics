@@ -42,4 +42,12 @@ public class Unit : MonoBehaviour
             }
         }
     }
+
+    public void TryToKill()
+    {
+        if (currentHP <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 }

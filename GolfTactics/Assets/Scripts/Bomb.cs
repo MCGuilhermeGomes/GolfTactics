@@ -39,6 +39,7 @@ public class Bomb : MonoBehaviour
             if (unit != null)
             {
                 unit.TakeDamage(5);
+                unit.TryToKill();
             }
         }
         hasExploded = true;
