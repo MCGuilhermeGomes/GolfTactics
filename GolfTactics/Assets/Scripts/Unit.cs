@@ -8,5 +8,8 @@ public class Unit : MonoBehaviour
     public int damage;
     public int maxHP;
     public int currentHP;
-
+    public void TakeDamage(int dmg)
+    {
+        currentHP -= dmg;
+    }
 }

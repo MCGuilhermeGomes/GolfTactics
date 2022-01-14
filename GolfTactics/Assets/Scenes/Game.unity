@@ -130,6 +130,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1614381361}
     m_Modifications:
+    - target: {fileID: 3252098984494409856, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: maxHP
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252098984494409856, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: damage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252098984494409856, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: currentHP
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3252098984494409869, guid: c3297329378e142a7b37ba5863bcb7bf,
         type: 3}
       propertyPath: m_RootOrder
@@ -333,6 +348,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1614381361}
     m_Modifications:
+    - target: {fileID: 3252098984494409856, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: maxHP
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252098984494409856, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: damage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252098984494409856, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: currentHP
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3252098984494409869, guid: c3297329378e142a7b37ba5863bcb7bf,
         type: 3}
       propertyPath: m_RootOrder
@@ -651,6 +681,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1104162183}
     m_Modifications:
+    - target: {fileID: 3252098984494409856, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: maxHP
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252098984494409856, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: damage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252098984494409856, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: currentHP
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3252098984494409869, guid: c3297329378e142a7b37ba5863bcb7bf,
         type: 3}
       propertyPath: m_RootOrder
@@ -832,6 +877,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1104162183}
     m_Modifications:
+    - target: {fileID: 3252098984494409856, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: maxHP
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252098984494409856, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: damage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252098984494409856, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: currentHP
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3252098984494409869, guid: c3297329378e142a7b37ba5863bcb7bf,
         type: 3}
       propertyPath: m_RootOrder
@@ -1223,7 +1283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 0}
-  target: {fileID: 561649510}
+  target: {fileID: 207533046}
   h: 25
   gravity: -18
   debugPath: 1
@@ -1491,6 +1551,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1104162183}
     m_Modifications:
+    - target: {fileID: 3252098984494409856, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: maxHP
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252098984494409856, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: damage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252098984494409856, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: currentHP
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3252098984494409869, guid: c3297329378e142a7b37ba5863bcb7bf,
         type: 3}
       propertyPath: m_RootOrder
@@ -1560,6 +1635,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1614381361}
     m_Modifications:
+    - target: {fileID: 3252098984494409856, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: maxHP
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252098984494409856, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: damage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252098984494409856, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: currentHP
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3252098984494409869, guid: c3297329378e142a7b37ba5863bcb7bf,
         type: 3}
       propertyPath: m_RootOrder

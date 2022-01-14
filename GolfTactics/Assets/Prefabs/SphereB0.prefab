@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3252098984494409859}
   - component: {fileID: 3252098984494409868}
   - component: {fileID: 3252098984494409856}
+  - component: {fileID: -5152133641852779996}
   m_Layer: 0
   m_Name: SphereB0
   m_TagString: Untagged
@@ -129,6 +130,23 @@ MonoBehaviour:
   damage: 0
   maxHP: 0
   currentHP: 0
+--- !u!114 &-5152133641852779996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3252098984494409870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ed76d1ef51b7484781092e6db407fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 1
+  radius: 100
+  force: 700
+  explosionEffect: {fileID: 1892078723244562, guid: 46876a2780737ec45a19d62f88e5ce56,
+    type: 3}
 --- !u!1001 &3133140395506977184
 PrefabInstance:
   m_ObjectHideFlags: 0

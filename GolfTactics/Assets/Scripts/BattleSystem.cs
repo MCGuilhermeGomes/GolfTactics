@@ -52,7 +52,7 @@ public class BattleSystem : MonoBehaviour
         }
         PickTeamBall();
         SwitchCamera();
-    }
+    } 
     void PickTeamBall()
     {
         if (state == BattleState.TEAMATURN)
