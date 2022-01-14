@@ -15,9 +15,9 @@ public class DragWithTouch : MonoBehaviour
             if (touch.phase == TouchPhase.Moved)
             {
                 transform.position = new Vector3(
-                    transform.position.x + touch.deltaPosition.x * Time.deltaTime,
+                    transform.position.x + touch.deltaPosition.x * Time.deltaTime * 2,
                     transform.position.y,
-                    transform.position.z + touch.deltaPosition.y * Time.deltaTime);
+                    transform.position.z + touch.deltaPosition.y * Time.deltaTime * 2);
             }
         }
     }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -281,7 +281,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
+  m_Radius: 3.59
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
@@ -343,7 +343,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 561649509}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24dd7c9f4137b414380a39c47babcf21, type: 3}
+  m_Script: {fileID: 11500000, guid: c1a80c2eccf904a9c846c6ad178b124f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &657442128
@@ -1256,12 +1256,11 @@ MonoBehaviour:
   - {fileID: 381639099}
   - {fileID: 665318722}
   currentAUnit: 0
-  playerAUnit:
+  teamAUnit:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  currentBomb: {fileID: 0}
-  playerBTeam:
+  teamB:
   - {fileID: 207533045}
   - {fileID: 1360933652}
   - {fileID: 948788099}
@@ -1301,10 +1300,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74df0e13d973d43c08ad8818c3d67c4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ball: {fileID: 0}
   ballUnit: {fileID: 0}
   ballBody: {fileID: 0}
   target: {fileID: 561649510}
-  bomb: {fileID: 0}
+  ballBomb: {fileID: 0}
   battleSystem: {fileID: 1666313336}
   h: 25
   gravity: -18
