@@ -875,6 +875,7 @@ MonoBehaviour:
   state: 0
   launchButton: {fileID: 6224601654121978356}
   pendulumMinigame: {fileID: 8709977488513987975}
+  pullMinigame: {fileID: 2462228734660283332}
   minigameEndTime: 1
 --- !u!1 &554978150423823010
 GameObject:

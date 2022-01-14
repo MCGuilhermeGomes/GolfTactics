@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PendulumMinigame : MonoBehaviour
 {
+    public static PendulumMinigame main;
+
     public GameObject pendulum;
 
     public float maxAngle = 55f;
@@ -19,6 +21,7 @@ public class PendulumMinigame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        main = this;
         ResetPendulum();
     }
 
