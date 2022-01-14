@@ -62,6 +62,11 @@ public class Bomb : MonoBehaviour
     {
         return hasExploded;
     }
+
+    public void ExplosionEffect()
+    {
+        Instantiate(explosionEffect, transform.position, transform.rotation);
+    }
 }
 
 

@@ -27,10 +27,7 @@ public class Unit : MonoBehaviour
             speed = GetComponent<Rigidbody>().velocity.magnitude;
             if(speed < 0.5) 
             {
-                rb.velocity = new Vector3(0, 0, 0);
-                isMoving = false;
-                wasLaunched = false;
-                bomb.Explode();
+                EndMove();
             } else
             {
                 isMoving = true;
@@ -41,6 +38,14 @@ public class Unit : MonoBehaviour
     public void TakeDamage(int dmg)
     {
         currentHP -= dmg;
+    }
+
+    public void EndMove()
+    {
+        rb.velocity = new Vector3(0, 0, 0);
+        isMoving = false;
+        wasLaunched = false;
+        bomb.Explode();
     }
 
     public bool TryToKill()
@@ -65,6 +70,7 @@ public class Unit : MonoBehaviour
     public void Respawn()
     {
         gameObject.SetActive(true);
+        gameObject.GetComponent<Collider>().enabled = true;
         isMoving = false;
         wasLaunched = false;
         currentHP = maxHP;
