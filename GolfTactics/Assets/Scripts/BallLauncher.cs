@@ -9,17 +9,25 @@ public class BallLauncher : MonoBehaviour
 	public Transform target;
 	public Bomb ballBomb;
 	public BattleSystem battleSystem;
-
+	
 	public float h = 25;
 	public float gravity = -18;
 
 	public bool debugPath;
 
-	void Update()
+	public static BallLauncher main;
+
+    private void Start()
+    {
+		main = this;
+    }
+
+    void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Space)) //button/touch click
 		{
-			Launch();
+			SwitchToPlayerCam();
+			//Launch();
 		}
 
 		if (debugPath)
@@ -40,7 +48,7 @@ public class BallLauncher : MonoBehaviour
 		ballBomb = ball.GetComponent<Bomb>();
 	}
 
-	void Launch()
+	public void Launch()
 	{
 		ballUnit.wasLaunched = true;
 		Physics.gravity = Vector3.up * gravity;
@@ -87,4 +95,11 @@ public class BallLauncher : MonoBehaviour
 		}
 
 	}
+
+	public void SwitchToPlayerCam()
+    {
+		target.GetComponent<CapsuleCollider>().enabled = false;
+		ball.transform.LookAt(target);
+		ball.GetComponent<PlayerCamera>().enableCamera();
+    }
 }

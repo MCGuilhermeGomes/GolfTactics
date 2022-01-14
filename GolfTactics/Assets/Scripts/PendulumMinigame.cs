@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PendulumMinigame : MonoBehaviour
 {
+    public static PendulumMinigame main;
+
     public GameObject pendulum;
 
     public float maxAngle = 55f;
@@ -14,11 +16,12 @@ public class PendulumMinigame : MonoBehaviour
     private int direction = 1;
     private float progress = 0;
 
-    bool swinging = false;
+    bool swinging = true;
 
     // Start is called before the first frame update
     void Start()
     {
+        main = this;
         ResetPendulum();
     }
 
@@ -47,6 +50,9 @@ public class PendulumMinigame : MonoBehaviour
     public float StopPendulum()
     {
         swinging = false;
+
+        UIManager.main.state = UIGameState.MinigameEnd;
+        BallLauncher.main.Launch();
         Debug.Log(progress);
         return progress;
     }
