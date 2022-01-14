@@ -52,7 +52,7 @@ public class PendulumMinigame : MonoBehaviour
         swinging = false;
 
         UIManager.main.state = UIGameState.MinigameEnd;
-        BallLauncher.main.Launch();
+        BallLauncher.main.Launch(progress);
         Debug.Log(progress);
         return progress;
     }

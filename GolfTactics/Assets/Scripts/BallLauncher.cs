@@ -12,9 +12,9 @@ public class BallLauncher : MonoBehaviour
 	
 	public float h = 25;
 	public float gravity = -18;
+	public float precision = 100;
 
 	public bool debugPath;
-
 	public static BallLauncher main;
 
     private void Start()
@@ -27,7 +27,6 @@ public class BallLauncher : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Space)) //button/touch click
 		{
 			SwitchToPlayerCam();
-			//Launch();
 		}
 
 		if (debugPath)
@@ -37,6 +36,7 @@ public class BallLauncher : MonoBehaviour
 
 		if (ballBomb.HasExploded()) // bomb i launched blew up, switch turn
 		{
+			target.position = Vector3.zero;
 			battleSystem.SwitchTurn();
 		}
 	}
@@ -48,8 +48,9 @@ public class BallLauncher : MonoBehaviour
 		ballBomb = ball.GetComponent<Bomb>();
 	}
 
-	public void Launch()
+	public void Launch(float pendulumProgress)
 	{
+		precision = pendulumProgress;
 		ballUnit.wasLaunched = true;
 		Physics.gravity = Vector3.up * gravity;
 		ballBody.useGravity = true;
@@ -93,7 +94,6 @@ public class BallLauncher : MonoBehaviour
 			this.initialVelocity = initialVelocity;
 			this.timeToTarget = timeToTarget;
 		}
-
 	}
 
 	public void SwitchToPlayerCam()
