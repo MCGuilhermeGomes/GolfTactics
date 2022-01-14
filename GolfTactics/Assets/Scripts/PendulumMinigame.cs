@@ -14,7 +14,7 @@ public class PendulumMinigame : MonoBehaviour
     private int direction = 1;
     private float progress = 0;
 
-    bool swinging = false;
+    bool swinging = true;
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +47,9 @@ public class PendulumMinigame : MonoBehaviour
     public float StopPendulum()
     {
         swinging = false;
-        UIManager.main.state = UIGameState.Aiming;
+
+        UIManager.main.state = UIGameState.MinigameEnd;
+        BallLauncher.main.Launch();
         Debug.Log(progress);
         return progress;
     }

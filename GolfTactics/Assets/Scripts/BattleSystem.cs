@@ -103,6 +103,10 @@ public class BattleSystem : MonoBehaviour
             ballLauncher.updateBall();
         }
 
+        HeaderUITurnSwitch.main.SwitchPlayer();
+        LauncherButtonColorSwap.main.SwitchPlayer();
+        UIManager.main.state = UIGameState.Aiming;
+
         SwitchCamera();
     }
 } 

@@ -13,6 +13,9 @@ public class UIManager : MonoBehaviour
     public GameObject launchButton;
     public GameObject pendulumMinigame;
 
+    public float minigameEndTime = 1f;
+    private float timer = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +34,20 @@ public class UIManager : MonoBehaviour
             case UIGameState.Minigame:
                 launchButton.SetActive(false);
                 pendulumMinigame.SetActive(true);
+                break;
+            case UIGameState.MinigameEnd:
+                timer += Time.deltaTime;
+                if (timer > minigameEndTime)
+                {
+                    state = UIGameState.Launching;
+                    timer = 0;
+                }
+                launchButton.SetActive(false);
+                pendulumMinigame.SetActive(true);
+                break;
+            case UIGameState.Launching:
+                launchButton.SetActive(false);
+                pendulumMinigame.SetActive(false);
                 break;
         }
 

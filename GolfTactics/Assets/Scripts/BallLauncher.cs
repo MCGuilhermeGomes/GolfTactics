@@ -15,7 +15,14 @@ public class BallLauncher : MonoBehaviour
 
 	public bool debugPath;
 
-	void Update()
+	public static BallLauncher main;
+
+    private void Start()
+    {
+		main = this;
+    }
+
+    void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Space)) //button/touch click
 		{
@@ -41,7 +48,7 @@ public class BallLauncher : MonoBehaviour
 		ballBomb = ball.GetComponent<Bomb>();
 	}
 
-	void Launch()
+	public void Launch()
 	{
 		ballUnit.wasLaunched = true;
 		Physics.gravity = Vector3.up * gravity;
