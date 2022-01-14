@@ -30,6 +30,10 @@ public class BallLauncher : MonoBehaviour
 			DrawPath();
 		}
 
+		if(!ballUnit.wasLaunched)
+			DrawArc();
+
+
 		if (ballBomb.HasExploded()) // bomb i launched blew up, switch turn
 		{
 			target.GetComponent<CapsuleCollider>().enabled = true;
@@ -71,7 +75,6 @@ public class BallLauncher : MonoBehaviour
 	{
 		LaunchData launchData = CalculateLaunchData();
 		Vector3 previousDrawPoint = ballBody.position;
-
 		int resolution = 30;
 		for (int i = 1; i <= resolution; i++)
 		{
@@ -104,4 +107,26 @@ public class BallLauncher : MonoBehaviour
 		ball.transform.LookAt(target);
 		ball.GetComponent<PlayerCamera>().enableCamera();
     }
+
+    private void DrawArc()
+	{
+		LaunchData launchData = CalculateLaunchData();
+		LineRenderer l = ArcPreview.instance.gameObject.GetComponent<LineRenderer>();
+		Vector3 previousDrawPoint = ballBody.position;
+		int resolution = 30;
+		Vector3[] points = new Vector3[resolution];
+		for (int i = 1; i <= resolution; i++)
+		{
+			float simulationTime = i / (float)resolution * launchData.timeToTarget;
+			Vector3 displacement = launchData.initialVelocity * simulationTime + Vector3.up * gravity * simulationTime * simulationTime / 2f;
+			Vector3 drawPoint = ballBody.position + displacement;
+			points[i-1] = drawPoint;
+			previousDrawPoint = drawPoint;
+		}
+
+		l.positionCount = resolution;
+		Color baseColor = ballUnit.team == 1 ? new Color(0f,0f,1f,0.5f) : new Color(1f, 0f, 0f, 0.5f);
+		l.material.color = baseColor;
+		l.SetPositions(points);
+	}
 }
