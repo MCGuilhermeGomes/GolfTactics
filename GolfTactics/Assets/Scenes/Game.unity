@@ -358,6 +358,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Bomb
       objectReference: {fileID: 0}
+    - target: {fileID: 4064876476785267164, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064876476785267164, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4430995812387211370, guid: c3297329378e142a7b37ba5863bcb7bf,
         type: 3}
       propertyPath: target
@@ -555,7 +565,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 255021751}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.05, z: -3.698}
+  m_LocalPosition: {x: 0, y: 0.82, z: -3.698}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 948788100}
@@ -919,6 +929,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Bomb
       objectReference: {fileID: 0}
+    - target: {fileID: 4064876476785267164, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064876476785267164, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4430995812387211370, guid: c3297329378e142a7b37ba5863bcb7bf,
         type: 3}
       propertyPath: target
@@ -1108,7 +1128,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 866464116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.05, z: -3.698}
+  m_LocalPosition: {x: 0, y: 0.82, z: -3.698}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 665318723}
@@ -1384,7 +1404,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1007245233}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.05, z: -3.698}
+  m_LocalPosition: {x: 0, y: 0.82, z: -3.698}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 381639100}
@@ -1601,6 +1621,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Bomb
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064876476785267164, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064876476785267164, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4430995812387211370, guid: c3297329378e142a7b37ba5863bcb7bf,
         type: 3}
@@ -2534,6 +2564,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Bomb
       objectReference: {fileID: 0}
+    - target: {fileID: 4064876476785267164, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064876476785267164, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4430995812387211370, guid: c3297329378e142a7b37ba5863bcb7bf,
         type: 3}
       propertyPath: target
@@ -2617,7 +2657,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1457163567}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.05, z: -3.698}
+  m_LocalPosition: {x: 0, y: 0.82, z: -3.698}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1360933653}
@@ -2826,7 +2866,7 @@ GameObject:
   - component: {fileID: 1484497693}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3213,7 +3253,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1733988122}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.05, z: -3.698}
+  m_LocalPosition: {x: 0, y: 0.82, z: -3.698}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 207533046}
@@ -3931,6 +3971,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Bomb
       objectReference: {fileID: 0}
+    - target: {fileID: 4064876476785267164, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064876476785267164, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4430995812387211370, guid: c3297329378e142a7b37ba5863bcb7bf,
         type: 3}
       propertyPath: target
@@ -4054,6 +4104,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Bomb
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064876476785267164, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064876476785267164, guid: c3297329378e142a7b37ba5863bcb7bf,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4430995812387211370, guid: c3297329378e142a7b37ba5863bcb7bf,
         type: 3}
